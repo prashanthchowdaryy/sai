@@ -1,0 +1,86 @@
+:root{--ivory:#FFF5E8;--gold:#C69B55;--maroon:#70251F;--peach:#F4C5A4;--brown:#6B4936;--serif:'Cormorant Garamond',Georgia,serif;--sans:'Lato',system-ui,sans-serif;--hand:'Caveat','Noto Serif Telugu',cursive}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth;scroll-padding-top:72px}
+body{font:400 1.05rem/1.7 var(--sans);color:var(--brown);background:var(--ivory);overflow-x:hidden}
+body.locked{overflow:hidden}
+:focus-visible{outline:2px solid var(--maroon);outline-offset:3px}
+svg{fill:none;stroke:currentColor;stroke-width:1.4;stroke-linecap:round;stroke-linejoin:round}
+
+.nav{position:fixed;inset:0 0 auto;z-index:20;display:flex;justify-content:space-between;align-items:center;gap:1rem;padding:.7rem clamp(1rem,4vw,3rem);background:linear-gradient(#fff5e8e6,#fff5e800);backdrop-filter:blur(3px)}
+.brand{display:flex;align-items:center;gap:.6rem;color:var(--maroon);text-decoration:none;font:500 .85rem/1.2 var(--serif)}
+.brand svg{width:34px;height:34px}.brand b{font-size:1.15rem;font-weight:600}
+.nav nav{display:flex;gap:clamp(.8rem,2.5vw,2rem)}
+.nav nav a{color:var(--maroon);text-decoration:none;font-size:.9rem;padding:.2rem 0;border-bottom:1px solid transparent}
+.nav nav a:hover{border-color:var(--gold)}
+body.locked .nav nav{visibility:hidden}
+
+.music{position:fixed;right:1rem;bottom:1rem;z-index:30;width:46px;height:46px;border-radius:50%;border:1px solid var(--gold);background:var(--ivory);color:var(--maroon);cursor:pointer;display:grid;place-items:center}
+.music svg{width:22px}.music .slash{position:absolute;width:28px;height:1.5px;background:var(--maroon);transform:rotate(-45deg)}
+.music[aria-pressed=true] .slash{display:none}
+
+.hero{position:relative;min-height:100svh;display:grid;place-items:center;text-align:center;padding:6rem 1.5rem 3rem;overflow:hidden;
+ background:radial-gradient(ellipse 60% 50% at 50% 42%,#fff5e8cc,#fff5e800 75%),linear-gradient(#fff5e855,#70251f40),url(assets/puttaparthi-hero.jpg) 35% center/cover,linear-gradient(#FFF5E8,#F4C5A4 55%,#C69B55)}
+.hero-inner{position:relative;z-index:2;max-width:640px}
+.kicker{font:italic 500 clamp(1.5rem,4vw,2.2rem)/1.2 var(--serif);color:var(--maroon)}
+h1{font:italic 600 clamp(4rem,15vw,8rem)/1 var(--serif);color:var(--maroon);letter-spacing:.01em}
+.rule{display:flex;align-items:center;gap:.8rem;justify-content:center;color:var(--gold);margin:.6rem 0 1rem}
+.rule::before,.rule::after{content:"";width:70px;height:1px;background:currentColor}
+.rule svg{width:34px}
+.sub{font:italic 500 1.25rem/1.5 var(--serif);max-width:30ch;margin:0 auto 2rem}
+.btn{font:700 .95rem var(--sans);color:var(--ivory);background:var(--maroon);border:0;border-radius:99px;padding:.95rem 2.2rem;cursor:pointer;transition:background .3s,transform .3s}
+.btn:hover{background:#8a332b;transform:translateY(-2px)}
+
+.petals{position:absolute;inset:0;pointer-events:none;z-index:1}
+.petals i{position:absolute;top:-30px;width:12px;height:16px;border-radius:70% 0 70% 0;background:#e86a9a;opacity:.7;animation:fall linear infinite}
+@keyframes fall{to{transform:translate(var(--dx),110vh) rotate(540deg)}}
+
+section{position:relative}
+h2{font:600 clamp(1.9rem,5vw,3rem)/1.2 var(--serif);color:var(--maroon)}
+.video-sec{padding:6rem 1.25rem 5rem;text-align:center;background:linear-gradient(var(--ivory),#f9e3cc)}
+.hint{margin:.4rem 0 2rem;font-size:.95rem}
+.frame{position:relative;max-width:900px;margin:auto;padding:10px;background:linear-gradient(135deg,var(--gold),#e6c88d,var(--gold));border-radius:6px;box-shadow:0 20px 50px #70251f33}
+.frame video{display:block;width:100%;aspect-ratio:16/9;background:#2a1410;accent-color:var(--maroon)}
+.bigplay{position:absolute;inset:0;margin:auto;width:84px;height:84px;border-radius:50%;border:1px solid var(--ivory);background:#70251fd9;color:var(--ivory);cursor:pointer;display:grid;place-items:center;transition:opacity .4s}
+.bigplay svg{width:34px;fill:currentColor;stroke:none;margin-left:4px}
+.bigplay.gone{opacity:0;pointer-events:none}
+
+.letter-sec{position:relative;padding:5rem 1.25rem;background:#f9e3cc;overflow:hidden}
+.letter-sec::before{content:"";position:absolute;inset:-20px;background:linear-gradient(#f9e3ccb3,#f9e3cce6),url(assets/puttaparthi-hero.jpg) center/cover;filter:blur(8px)}
+.paper{z-index:1}
+.paper{position:relative;max-width:860px;margin:auto;padding:clamp(1.8rem,5vw,4rem);background:#fffaf1 url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence baseFrequency='.8' numOctaves='2'/%3E%3CfeColorMatrix values='0 0 0 0 .42 0 0 0 0 .29 0 0 0 0 .21 0 0 0 .06 0'/%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23n)'/%3E%3C/svg%3E");border-radius:4px;box-shadow:0 14px 40px #6b493633;font-family:var(--serif);font-size:1.3rem;line-height:1.65;overflow:hidden}
+.paper p{margin-bottom:1.1rem;max-width:34em}
+.portrait{float:right;width:min(38%,260px);margin:0 0 1rem 1.5rem;border-radius:4px;shape-outside:margin-box}
+.hand{font-family:var(--hand);color:var(--maroon)}
+.big{font-size:2.6rem;line-height:1}
+.quote{font-size:2rem;line-height:1.25;border-left:3px solid var(--gold);padding-left:1rem;margin:1.5rem 0}
+.sign{font-size:1.8rem;margin:1.8rem 0 0}
+.te{font-family:'Noto Serif Telugu',serif;color:var(--maroon);font-size:1.15rem}
+.hi{font-family:'Noto Serif Devanagari',serif;color:var(--maroon);font-size:1.15rem}
+
+.remind{padding:5rem 1.25rem;background:var(--ivory)}
+.remind ul{max-width:1000px;margin:auto;padding:0;list-style:none;display:grid;grid-template-columns:repeat(4,1fr);gap:2rem}
+.remind li{text-align:center;padding:0 .5rem}
+.remind li+li{border-left:1px solid #c69b5566}
+.remind svg{width:48px;color:var(--gold);margin-bottom:.8rem}
+.remind h3{font:600 1.5rem var(--serif);color:var(--maroon);letter-spacing:.08em;text-transform:none}
+.remind p{font-size:.95rem}
+
+.final{min-height:100svh;display:grid;place-items:center;text-align:center;padding:5rem 1.5rem;color:var(--ivory);
+ background:linear-gradient(#70251fcc,#70251f66 60%,#2a141099),url(assets/puttaparthi-hero.jpg) 75% 60%/cover,linear-gradient(#70251F,#C69B55 70%,#F4C5A4)}
+.final-inner{max-width:760px}
+.final h2{color:var(--ivory);font-style:italic;margin-bottom:1rem}
+.lead{font:italic 500 1.5rem/1.5 var(--serif);margin-bottom:1.5rem}
+.final .te{color:var(--peach);font-size:1.2rem;line-height:1.9}
+.om{margin-top:3rem;font:600 clamp(1.8rem,5vw,2.8rem) var(--serif);letter-spacing:.3em}
+.r{opacity:0;transform:translateY(14px);transition:opacity 1.6s ease,transform 1.6s ease}
+.final.show .r{opacity:1;transform:none}
+.final.show .lead{transition-delay:1.2s}.final.show .te{transition-delay:2.4s}.final.show .om{transition-delay:3.8s}
+.final.fade .r:not(.om){opacity:0;transition:opacity 3s ease}
+
+@media (max-width:760px){
+ .nav nav a:nth-child(3){display:none}.nav nav{gap:.8rem}.brand span{display:none}
+ .remind ul{grid-template-columns:1fr}.remind li+li{border-left:0;border-top:1px solid #c69b5566;padding-top:1.5rem}
+ .portrait{float:none;display:block;width:60%;margin:0 auto 1.5rem}
+ .paper{font-size:1.2rem}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.petals{display:none}.r{transition:none;opacity:1;transform:none}}
